@@ -1,0 +1,111 @@
+@import "variables";
+
+// Box Shadows
+.box-shadow(...) {
+  -webkit-box-shadow+:@arguments;
+  -moz-box-shadow+:@arguments;
+  box-shadow+:@arguments;
+}
+
+// Filters
+.filter(...) {
+  -webkit-filter:@arguments;
+  -moz-filter:@arguments;
+  -ms-filter:@arguments;
+  -o-filter:@arguments;
+  filter:@arguments;
+}
+
+// Transitions
+.transition(quick; @target: all) {
+  .transition(@target; 200ms; ease; 0s);
+}
+.transition(slow; @target: all) {
+  .transition(@target; 500ms; ease; 0s);
+}
+.transition(none) {
+  -webkit-transition:none;
+  -moz-transition:none;
+  -o-transition:none;
+  transition:none;
+}
+.transition(@target; @duration; @easing; @delay) {
+  -webkit-transition: @target @duration @easing @delay;
+  -moz-transition: @target @duration @easing @delay;
+  -o-transition: @target @duration @easing @delay;
+  transition: @target @duration @easing @delay;
+}
+.transition(@target; @duration; @easing; @delay) {
+  -webkit-transition: @target @duration @easing @delay;
+  -moz-transition: @target @duration @easing @delay;
+  -o-transition: @target @duration @easing @delay;
+  transition: @target @duration @easing @delay;
+}
+
+// Transform
+.transform(...) {
+  -webkit-transform:@arguments;
+  -ms-transform:@arguments;
+  transform:@arguments;
+}
+.transform-origin(...) {
+  -webkit-transform-origin:@arguments;
+  -ms-transform-origin:@arguments;
+  transform-origin:@arguments;
+}
+.transform-style(...) {
+  -webkit-transform-style:@arguments;
+  -ms-transform-style:@arguments;
+  transform-style:@arguments;
+}
+.backface-visibility(...) {
+  -webkit-backface-visibility:@arguments;
+  backface-visibility:@arguments;
+}
+.perspective(...) {
+  -webkit-perspective:@arguments;
+  -ms-perspective:@arguments;
+  perspective:@arguments;
+}
+
+// Animation
+.animation(...) {
+  -webkit-animation:@arguments;
+  -moz-animation:@arguments;
+  -o-animation:@arguments;
+  animation:@arguments;
+}
+.animation-duration(...) {
+  -webkit-animation-duration:@arguments;
+  -moz-animation-duration:@arguments;
+  -ms-animation-duration:@arguments;
+  -o-animation-duration:@arguments;
+  animation-duration:@arguments;
+}
+.animation-fill-mode(...) {
+  -webkit-animation-fill-mode:@arguments;
+  -moz-animation-fill-mode:@arguments;
+  -ms-animation-fill-mode:@arguments;
+  -o-animation-fill-mode:@arguments;
+  animation-fill-mode:@arguments;
+}
+.animation-iteration-count(...) {
+  -webkit-animation-iteration-count:@arguments;
+  -moz-animation-iteration-count:@arguments;
+  -ms-animation-iteration-count:@arguments;
+  -o-animation-iteration-count:@arguments;
+  animation-iteration-count:@arguments;
+}
+
+// Sprites
+.sprite(@column; @row; @size; @offset: 0px) {
+  @sprite-width: 4;
+  @sprite-height: 2;
+  background-position:-((@column - 1) * @size + @offset) -((@row - 1) * @size + @offset);
+  background-size:@size * @sprite-width @size * @sprite-height;
+  background-image:url('%%Sprite%%');
+  background-repeat:no-repeat;
+}
+.sprite-pos(@column; @row; @size; @offset: 0px) {
+  background-position:-((@column - 1) * @size + @offset) -((@row - 1) * @size + @offset);
+}
