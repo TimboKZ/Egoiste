@@ -2,7 +2,7 @@
 @import "import/mixins";
 
 /*
-  Egoiste v0.1 (http://www.reddit.com/r/Egoiste)
+  Egoiste v0.2 (http://www.reddit.com/r/Egoiste)
   Copyright (c) 2015 Timur Kuzhagaliyev (TimboKZ)
 */
 
@@ -107,8 +107,8 @@ body {
 
 #header-bottom-right {
   background-color:@userbar-background !important;
-  padding:10px 0 !important;
-  height:20px !important;
+  height:40px !important;
+  padding:0 !important;
   border-radius:0;
   .separator {
     display:none;
@@ -127,10 +127,102 @@ body {
     margin:0;
   }
   .user {
-    line-height:20px;
-    font-size:12px;
-    margin:0 10px;
-    height:20px;
+    color:@userbar-text;
+    font-size:0;
+    & > a {
+      margin:7.5px 0 7.5px 7.5px;
+      display:inline-block;
+      color:@userbar-text;
+      .transition(slow);
+      line-height:25px;
+      font-size:12px;
+      padding:0 5px;
+      height:25px;
+      &:hover {
+        background-color:@userbar-hover-background;
+        color:@userbar-hover-text;
+      }
+    }
+    .login-required {
+      margin:7.5px 0 7.5px 7.5px;
+    }
+    .userkarma {
+      border:none;
+      a {
+        display:inline-block;
+        color:@userbar-text;
+        font-weight:normal;
+        .transition(slow);
+        line-height:25px;
+        font-size:12px;
+        padding:0 5px;
+        height:25px;
+        border:none;
+        &:hover {
+          background-color:@userbar-hover-background;
+          color:@userbar-hover-text;
+        }
+        &:first-child {
+          margin:7.5px 0;
+        }
+        &:last-child {
+          margin:7.5px 0 7.5px 7.5px;
+        }
+      }
+    }
+  }
+  #RESAccountSwitcherIcon, #mail, #mail.havemail, #mail.nohavemail, #modmail, #modmail.havemail, #modmail.nohavemail, .pref-lang, .logout a, #RESSettingsButton {
+    max-width:25px !important;
+    min-width:25px !important;
+    display:inline-block;
+    .sprite(2, 1, 25px);
+    vertical-align:top;
+    left:0 !important;
+    .transition(slow);
+    top:0 !important;
+    margin:7.5px;
+    height:25px;
+    width:25px;
+    &:hover {
+      background-color:@userbar-hover-background;
+    }
+  }
+  #mail {
+    .sprite-pos(3, 1, 25px);
+    &.nohavemail {
+      .sprite-pos(4, 1, 25px);
+    }
+  }
+  #modmail, #openRESPrefs {
+    margin:7.5px 0 !important;
+    .sprite-pos(5, 1, 25px);
+    &.nohavemail {
+      .sprite-pos(6, 1, 25px);
+    }
+  }
+  .flat-list, .flat-list li, .pref-lang, .logout, .logout a, #openRESPrefs {
+    display:inline-block;
+    vertical-align:top;
+    font-size:0;
+    height:25px;
+    width:25px;
+    padding:0;
+    margin:0;
+  }
+  .flat-list, .logout {
+    margin:7.5px !important;
+  }
+  .pref-lang {
+    .sprite-pos(7, 1, 25px);
+    margin:0 !important;
+  }
+  #RESSettingsButton {
+    .sprite-pos(8, 1, 25px);
+    margin:0 !important;
+  }
+  .logout a {
+    .sprite-pos(9, 1, 25px);
+    margin:0 !important;
   }
 }
 
@@ -308,6 +400,19 @@ body {
         }
       }
     }
+    .no-icon {
+      border-bottom:solid 2px @side-element-border;
+      background:@side-element-background none;
+      color:@side-element-text;
+      border-radius:5px;
+      padding:5px 10px;
+      &:first-letter {
+        text-transform:capitalize;
+      }
+      .subtitle {
+        margin:0;
+      }
+    }
   }
   .titlebox {
     .redditname {
@@ -325,6 +430,190 @@ body {
           text-decoration:none;
           letter-spacing:2px;
         }
+      }
+    }
+    div[data-res-css="display: block !important;"] {
+      text-align:center;
+    }
+    .subscribers, .users-online {
+      border-bottom:solid 1px @side-element-border;
+      background:@side-element-background;
+      color:@side-element-text;
+      display:inline-block;
+      vertical-align:top;
+      text-align:center;
+      line-height:25px;
+      margin:5px 0 0 0;
+      height:25px;
+      width:150px;
+      &:before {
+        display:none;
+      }
+    }
+    .subscribers {
+      border-top-left-radius:5px;
+    }
+    .users-online {
+      border-top-right-radius:5px;
+    }
+    .leavemoderator, .leavecontributor-button, .flairtoggle {
+      background:@side-element-background;
+      color:@side-element-text;
+      padding:5px;
+    }
+    .flairtoggle {
+      border-bottom:solid 1px @side-element-border;
+      input, label {
+        vertical-align:top;
+        margin-top:0;
+      }
+    }
+    .tagline {
+      border-bottom:solid 1px @side-element-border;
+      background:@side-element-background;
+      line-height:16px;
+      padding:5px 3px;
+      height:16px;
+      margin:0;
+      .author, .userattrs {
+        display:inline-block;
+        vertical-align:top;
+        line-height:16px;
+        padding:0 5px;
+        height:16px;
+        margin:0;
+      }
+      .author {
+        .box-shadow(inset transparent 0 100px 0);
+        border-radius: 0 !important;
+        font-weight: normal;
+        margin: 0 2px;
+        &:hover {
+          .box-shadow(inset @user-shadow 0 100px 0);
+        }
+        &.submitter {
+          background-color: @user-submitter-background !important;
+          color: @user-submitter-text !important;
+          border-radius: 0 !important;
+        }
+        &.moderator {
+          background-color: @user-moderator-background !important;
+          color: @user-moderator-text !important;
+          border-radius: 0 !important;
+        }
+        &.friend {
+          background-color: @user-friend-background !important;
+          color: @user-friend-text !important;
+          border-radius: 0 !important;
+        }
+      }
+      .flair {
+        background-color: @user-flair-background;
+        color: @user-flair-text;
+        display: inline-block;
+        vertical-align: top;
+        font-size: x-small;
+        line-height: 16px;
+        border-radius: 0;
+        padding: 0 4px;
+        margin: 0 2px;
+        height: 16px;
+        border: none;
+      }
+      .userattrs {
+        font-size: 0;
+        padding: 0;
+        margin: 0;
+        a {
+          background-color: @content-element-border;
+          .box-shadow(inset transparent 0 100px 0);
+          display: inline-block;
+          vertical-align: top;
+          text-align: center;
+          font-size: x-small;
+          line-height: 16px;
+          margin: 0 2px;
+          height: 16px;
+          width: 16px;
+          padding: 0;
+          &:hover {
+            .box-shadow(inset @user-shadow 0 100px 0);
+            text-decoration: none;
+          }
+          &.submitter {
+            background-color: @user-submitter-background;
+            color: @user-submitter-text
+          }
+          &.moderator {
+            background-color: @user-moderator-background;
+            color: @user-moderator-text
+          }
+          &.friend {
+            background-color: @user-friend-background;
+            color: @user-friend-text
+          }
+        }
+      }
+    }
+    .usertext {
+      border-bottom:solid 1px @side-element-border;
+      background:@side-element-background;
+      padding:5px 10px;
+    }
+    .bottom {
+      border-bottom:solid 2px @side-element-border;
+      background:@side-element-background;
+      border-bottom-right-radius:5px;
+      border-bottom-left-radius:5px;
+      color:@side-element-text;
+      border-top:none;
+      padding:5px;
+      .flair, .userattrs {
+        display:none;
+      }
+    }
+  }
+  .subscribe-button {
+    display:block;
+    height:20px;
+    padding:0;
+    a {
+      text-transform: capitalize !important;
+      color: @side-subscribe-text;
+      font-weight: normal;
+      line-height: 20px;
+      background: none;
+      font-size: small;
+      margin: 0 5px;
+      border: none;
+      padding: 0;
+      &:hover {
+        color: @side-subscribe-hover-text;
+      }
+    }
+  }
+  .subButtons {
+    text-align:center;
+    height:20px;
+    padding:0;
+    margin:0;
+    span {
+      display:inline-block !important;
+      height:20px;
+      padding:0;
+    }
+    span:not(:first-child), a {
+      text-transform:capitalize !important;
+      color:@side-subscribe-text;
+      font-weight:normal;
+      line-height:20px;
+      background:none;
+      font-size:small;
+      margin:0 5px;
+      border:none;
+      padding:0;
+      &:hover {
+        color:@side-subscribe-hover-text;
       }
     }
   }
@@ -456,6 +745,7 @@ body > .content {
     font-size:medium;
     border-top:none;
     padding:0 15px;
+    cursor:pointer;
     height:35px;
     width:auto;
     &:first-letter {
@@ -465,6 +755,7 @@ body > .content {
       background-color:@side-element-hover-background !important;
       border-bottom:solid 2px @side-element-hover-border;
       color:@side-element-hover-text;
+      outline:none;
     }
   }
   .menuarea {
@@ -508,6 +799,17 @@ body > .content {
         display:block;
         width:auto;
         margin:0;
+        .title, & > h1 {
+          font-size:smaller !important;
+          color:@content-element-text;
+          font-weight:normal;
+          display:block;
+          padding:5px;
+          margin:0;
+          &:first-letter {
+            text-transform:uppercase !important;
+          }
+        }
         &:nth-child(2) {
           border-top-right-radius:5px;
           border-top-left-radius:5px;
@@ -516,6 +818,13 @@ body > .content {
           border-bottom:solid 2px @content-element-border;
           border-bottom-right-radius:5px;
           border-bottom-left-radius:5px;
+        }
+      }
+      .save-button {
+        padding:20px 0 0 0;
+        margin:0;
+        button {
+          margin:0;
         }
       }
     }
@@ -801,6 +1110,11 @@ body > .content {
         left:25px;
         top:50%;
       }
+    }
+    .thumbnail {
+      margin:10px 0 10px 10px;
+      display:inline-block;
+      position:relative;
     }
     .entry {
       padding:10px;

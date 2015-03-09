@@ -99,11 +99,11 @@
 
 // Sprites
 .sprite(@column; @row; @size; @offset: 0px) {
-  @sprite-width: 4;
-  @sprite-height: 2;
+  @sprite-width: 10;
+  @sprite-height: 10;
   background-position:-((@column - 1) * @size + @offset) -((@row - 1) * @size + @offset);
   background-size:@size * @sprite-width @size * @sprite-height;
-  background-image:url('%%Sprite%%');
+  background-image:url('%%egoiste-sprite%%');
   background-repeat:no-repeat;
 }
 .sprite-pos(@column; @row; @size; @offset: 0px) {
