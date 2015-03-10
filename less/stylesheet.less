@@ -2,7 +2,7 @@
 @import "import/mixins";
 
 /*
-  Egoiste v0.2 (http://www.reddit.com/r/Egoiste)
+  Egoiste v0.3 (http://www.reddit.com/r/Egoiste)
   Copyright (c) 2015 Timur Kuzhagaliyev (TimboKZ)
 */
 
@@ -28,10 +28,9 @@ body {
   font-size:0;
   height:40px;
   #header-img {
-    background:url('%%egoiste-snoo%%') no-repeat center;
     margin:9px 10px 11px 10px;
-    background-size:cover;
     vertical-align:middle;
+    .sprite(1, 1, 20px);
     height:20px;
     width:20px;
   }
@@ -174,6 +173,7 @@ body {
   #RESAccountSwitcherIcon, #mail, #mail.havemail, #mail.nohavemail, #modmail, #modmail.havemail, #modmail.nohavemail, .pref-lang, .logout a, #RESSettingsButton {
     max-width:25px !important;
     min-width:25px !important;
+    width:25px !important;
     display:inline-block;
     .sprite(2, 1, 25px);
     vertical-align:top;
@@ -182,7 +182,6 @@ body {
     top:0 !important;
     margin:7.5px;
     height:25px;
-    width:25px;
     &:hover {
       background-color:@userbar-hover-background;
     }
@@ -192,12 +191,18 @@ body {
     &.nohavemail {
       .sprite-pos(4, 1, 25px);
     }
+    &.havemail {
+      .sprite-pos(3, 1, 25px);
+    }
   }
   #modmail, #openRESPrefs {
     margin:7.5px 0 !important;
     .sprite-pos(5, 1, 25px);
     &.nohavemail {
       .sprite-pos(6, 1, 25px);
+    }
+    &.havemail {
+      .sprite-pos(5, 1, 25px);
     }
   }
   .flat-list, .flat-list li, .pref-lang, .logout, .logout a, #openRESPrefs {
@@ -350,14 +355,22 @@ body {
     margin:0;
     &.create {
       position:relative;
+      .morelink, .morelink a {
+        border-bottom:solid 1px @side-element-border !important;
+        border-bottom-right-radius:0 !important;
+        border-bottom-left-radius:0 !important;
+        &:hover {
+          border-bottom:solid 1px @side-element-hover-border !important;
+        }
+      }
       .spacer {
-        background-color:@side-element-secondary-background;
-        color:@side-element-secondary-text;
+        background-color:@side-element-background;
         border-bottom-right-radius:5px;
         border-bottom-left-radius:5px;
+        color:@side-element-text;
         padding:7px 5px 5px 5px;
-        margin:-2px 0 20px 0;
         position:relative;
+        margin:0 0 20px 0;
         z-index:-1;
         .login-required {
           position:relative;
@@ -614,6 +627,64 @@ body {
       padding:0;
       &:hover {
         color:@side-subscribe-hover-text;
+      }
+    }
+  }
+  .sidecontentbox.collapsible {
+    border-bottom: solid 2px @side-element-border;
+    background: @side-element-background none;
+    color: @side-element-text;
+    font-weight: normal;
+    border-radius: 5px;
+    border-right: none;
+    position: relative;
+    border-left: none;
+    border-top: none;
+    padding: 0;
+    .title {
+      position:relative;
+      .collapse-button {
+        .transform(translateY(-50%));
+        color:@content-element-text;
+        position:absolute;
+        line-height:19px;
+        background:none;
+        font-size:16px;
+        height:25px;
+        border:none;
+        width:25px;
+        padding:0;
+        right:5px;
+        margin:0;
+        top:50%;
+      }
+    }
+    h1 {
+      border-bottom:solid 1px @side-element-border;
+      text-transform:capitalize;
+      color:@side-element-text;
+      font-weight:normal;
+      padding:10px 15px;
+      display:block;
+    }
+    .content {
+      border:none;
+      padding:0;
+      .flat-vert {
+        li {
+          border-bottom:solid 1px @side-element-border;
+          margin:0;
+          &:last-child {
+            border-bottom-right-radius:0;
+            border-bottom-left-radius:0;
+            border:none;
+          }
+          a {
+            padding:5px 10px;
+            background:none;
+            display:block;
+          }
+        }
       }
     }
   }
@@ -1237,6 +1308,12 @@ body > .content {
           text-transform:capitalize;
         }
       }
+      .md {
+        padding:1px 10px 10px 10px !important;
+        border-radius:0;
+        border:none;
+        margin:0;
+      }
       .buttons {
         li {
           a, span {
@@ -1703,3 +1780,5 @@ body > .content {
 .debuginfo {
   display:none;
 }
+
+@import "../../../EnTypo/EnTypo/stylesheet";
