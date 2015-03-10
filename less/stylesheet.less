@@ -2,7 +2,7 @@
 @import "import/mixins";
 
 /*
-  Egoiste v0.3 (http://www.reddit.com/r/Egoiste)
+  Egoiste v0.4 (http://www.reddit.com/r/Egoiste)
   Copyright (c) 2015 Timur Kuzhagaliyev (TimboKZ)
 */
 
@@ -1183,15 +1183,61 @@ body > .content {
       }
     }
     .thumbnail {
+      background-color:@content-thing-thumbnail-background;
       margin:10px 0 10px 10px;
       display:inline-block;
       position:relative;
+      height:70px;
+      width:70px;
+      &.self {
+        .sprite-big(2, 1, 70px);
+      }
+      &.default {
+        .sprite-big(3, 1, 70px);
+      }
+      img {
+        .transform(translateY(-50%));
+        margin:50% 0 0 0;
+      }
+    }
+    &.stickied .thumbnail {
+      .sprite-big(1, 1, 70px);
     }
     .entry {
       padding:10px;
       .title {
         font-weight:normal !important;
         padding:0 0 0 0;
+      }
+      .expando-button {
+        background-color:@content-thing-expando-background;
+        .transition(slow, background-color);
+        margin:7px 5px 5px 0;
+        .sprite(3, 2, 25px);
+        max-height:25px;
+        max-width:25px;
+        cursor:pointer;
+        height:25px;
+        width:25px;
+        padding:0;
+        &:hover {
+          background-color:@content-thing-expando-hover-background;
+        }
+        &.expanded {
+          .sprite(4, 2, 25px);
+        }
+        &.video {
+          .sprite-pos(1, 2, 25px) !important;
+          &.expanded {
+            .sprite-pos(2, 2, 25px) !important;
+          }
+        }
+        &.image {
+          .sprite-pos(5, 2, 25px) !important;
+          &.expanded {
+            .sprite-pos(6, 2, 25px) !important;
+          }
+        }
       }
       .tagline {
         line-height:16px;

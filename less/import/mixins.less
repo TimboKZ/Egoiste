@@ -106,6 +106,14 @@
   background-image:url('%%egoiste-sprite%%');
   background-repeat:no-repeat;
 }
+.sprite-big(@column; @row; @size; @offset: 0px) {
+  @sprite-width: 3;
+  @sprite-height: 3;
+  background-position:-((@column - 1) * @size + @offset) -((@row - 1) * @size + @offset);
+  background-size:@size * @sprite-width @size * @sprite-height;
+  background-image:url('%%egoiste-sprite-big%%');
+  background-repeat:no-repeat;
+}
 .sprite-pos(@column; @row; @size; @offset: 0px) {
   background-position:-((@column - 1) * @size + @offset) -((@row - 1) * @size + @offset);
 }

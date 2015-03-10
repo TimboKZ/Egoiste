@@ -1,5 +1,5 @@
 /*
-  Egoiste v0.3 (http://www.reddit.com/r/Egoiste)
+  Egoiste v0.4 (http://www.reddit.com/r/Egoiste)
   Copyright (c) 2015 Timur Kuzhagaliyev (TimboKZ)
 */
 body {
@@ -1267,9 +1267,36 @@ body > .content .submit.content .formtabs-content .spacer .roundfield .md {
   top: 50%;
 }
 .linklisting .thing .thumbnail {
+  background-color: #fafafa;
   margin: 10px 0 10px 10px;
   display: inline-block;
   position: relative;
+  height: 70px;
+  width: 70px;
+}
+.linklisting .thing .thumbnail.self {
+  background-position: -70px 0px;
+  background-size: 210px 210px;
+  background-image: url('%%egoiste-sprite-big%%');
+  background-repeat: no-repeat;
+}
+.linklisting .thing .thumbnail.default {
+  background-position: -140px 0px;
+  background-size: 210px 210px;
+  background-image: url('%%egoiste-sprite-big%%');
+  background-repeat: no-repeat;
+}
+.linklisting .thing .thumbnail img {
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin: 50% 0 0 0;
+}
+.linklisting .thing.stickied .thumbnail {
+  background-position: 0px 0px;
+  background-size: 210px 210px;
+  background-image: url('%%egoiste-sprite-big%%');
+  background-repeat: no-repeat;
 }
 .linklisting .thing .entry {
   padding: 10px;
@@ -1277,6 +1304,45 @@ body > .content .submit.content .formtabs-content .spacer .roundfield .md {
 .linklisting .thing .entry .title {
   font-weight: normal !important;
   padding: 0 0 0 0;
+}
+.linklisting .thing .entry .expando-button {
+  background-color: #fafafa;
+  -webkit-transition: background-color 500ms ease 0s;
+  -moz-transition: background-color 500ms ease 0s;
+  -o-transition: background-color 500ms ease 0s;
+  transition: background-color 500ms ease 0s;
+  margin: 7px 5px 5px 0;
+  background-position: -50px -25px;
+  background-size: 250px 250px;
+  background-image: url('%%egoiste-sprite%%');
+  background-repeat: no-repeat;
+  max-height: 25px;
+  max-width: 25px;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+  padding: 0;
+}
+.linklisting .thing .entry .expando-button:hover {
+  background-color: #f2f2f2;
+}
+.linklisting .thing .entry .expando-button.expanded {
+  background-position: -75px -25px;
+  background-size: 250px 250px;
+  background-image: url('%%egoiste-sprite%%');
+  background-repeat: no-repeat;
+}
+.linklisting .thing .entry .expando-button.video {
+  background-position: 0px -25px !important;
+}
+.linklisting .thing .entry .expando-button.video.expanded {
+  background-position: -25px -25px !important;
+}
+.linklisting .thing .entry .expando-button.image {
+  background-position: -100px -25px !important;
+}
+.linklisting .thing .entry .expando-button.image.expanded {
+  background-position: -125px -25px !important;
 }
 .linklisting .thing .entry .tagline {
   line-height: 16px;
@@ -1859,7 +1925,7 @@ body > .content .submit.content .formtabs-content .spacer .roundfield .md {
   padding-bottom: 8px;
 }
 .footer-parent .bottommenu:nth-child(3):after {
-  content: ' /r/Egoiste Theme v0.3 by /u/Timbo_KZ';
+  content: ' /r/Egoiste Theme v0.4 by /u/Timbo_KZ';
   color: #aaaaaa;
   font-size: x-small;
 }
