@@ -1,5 +1,13 @@
 # Egoiste Changelog
 
+**v0.5**
+
+* Improved content boxes in the sidebar
+* Added NSFW post thumbnail icon
+* Added post flair support
+* Improved RES menus styling
+* Improved search bar styling
+
 **v0.4**
 
 * Added thumbnail icons for posts

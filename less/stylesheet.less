@@ -2,7 +2,7 @@
 @import "import/mixins";
 
 /*
-  Egoiste v0.4 (http://www.reddit.com/r/Egoiste)
+  Egoiste v0.5 (http://www.reddit.com/r/Egoiste)
   Copyright (c) 2015 Timur Kuzhagaliyev (TimboKZ)
 */
 
@@ -699,6 +699,12 @@ body {
     position:relative;
     border-left:none;
     border-top:none;
+    .helplink {
+      margin:10px 10px 0 0;
+      &:first-letter {
+        text-transform: uppercase;
+      }
+    }
     .title {
       border-bottom:solid 1px @side-element-border;
       text-transform:capitalize;
@@ -1033,6 +1039,15 @@ body > .content {
     }
   }
 }
+.searchpane {
+  border-bottom:solid 2px @content-element-border;
+  background-color:@content-element-background;
+  border-radius:5px;
+  border-right:none;
+  margin:0 0 20px 0;
+  border-left:none;
+  border-top:none;
+}
 .infobar {
   &:not(.welcome) {
     border-bottom:solid 2px @content-element-gold-border;
@@ -1203,11 +1218,27 @@ body > .content {
     &.stickied .thumbnail {
       .sprite-big(1, 1, 70px);
     }
+    &.over18 .thumbnail {
+      .sprite-big(1, 2, 70px);
+    }
     .entry {
       padding:10px;
       .title {
         font-weight:normal !important;
         padding:0 0 0 0;
+        .linkflairlabel {
+          background-color: @user-flair-background;
+          color: @user-flair-text;
+          display: inline-block;
+          vertical-align: top;
+          font-size: x-small;
+          line-height: 16px;
+          border-radius: 0;
+          margin-top:2px;
+          padding: 0 4px;
+          height: 16px;
+          border: none;
+        }
       }
       .expando-button {
         background-color:@content-thing-expando-background;
@@ -1361,6 +1392,11 @@ body > .content {
         margin:0;
       }
       .buttons {
+        .nsfw-stamp {
+          acronym {
+            border-radius: 0;
+          }
+        }
         li {
           a, span {
             font-weight:normal;
@@ -1759,6 +1795,45 @@ body > .content {
   .comment {
     border-radius:0 !important;
   }
+}
+
+#RESMainGearOverlay {
+  display:none !important;
+}
+#RESPrefsDropdown {
+  border-bottom:solid 1px @content-element-border !important;
+  background-color:@content-element-background !important;
+  border-right:none !important;
+  border-left:none !important;
+  border-top:none !important;
+  ul {
+    li {
+      border-bottom: solid 1px @content-element-border !important;
+      color: @content-element-text !important;
+      font-weight: normal !important;
+      text-transform: capitalize;
+      .transition(slow);
+      &:hover {
+        background-color: @side-element-hover-background !important;
+        color: @side-element-hover-text !important;
+        a {
+          color: @side-element-hover-text !important;
+          background: none !important;
+        }
+      }
+      &:last-child {
+        border-bottom-right-radius: 2px;
+        border-bottom-left-radius: 2px;
+      }
+      a {
+        color: @content-element-text !important;
+      }
+    }
+  }
+}
+#RESSearchMenuItem {
+  background-color: @content-element-text !important;
+  border-color: @content-element-text !important;
 }
 
 .footer-parent {
